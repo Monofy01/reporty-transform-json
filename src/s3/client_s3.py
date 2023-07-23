@@ -27,12 +27,13 @@ class S3Client:
             s3 = boto3.client('s3')
             buffer = io.BytesIO(binary_data)
             buffer.seek(0)
-            s3.upload_fileobj(buffer, ENVS.S3_BUCKET_NAME,
-                              f"{creator_excel.excel.filename}/{creator_excel.excel.filename}.xlsx")
+            s3.upload_fileobj(buffer, ENVS.S3_BUCKET_NAME,f"{creator_excel.excel.filename}/{creator_excel.excel.filename}.xlsx")
             buffer.close()
             print("Carga exitosa de archivo XLSX")
+            return True
         except Exception as e:
             print("Error uploading XLSX file to S3:", e)
+            return False
 
 
 
@@ -54,6 +55,7 @@ class S3Client:
                 return True
         except Exception as e:
             print("Error uploading LOGS file to S3:", e)
+            return False
 
     @staticmethod
     def upload_json_to_s3(creator_excel):
@@ -68,6 +70,8 @@ class S3Client:
 
                 # Upload the file object to S3
                 s3.upload_fileobj(file_obj, ENVS.S3_BUCKET_NAME, f'{creator_excel.excel.filename}/{creator_excel.excel.filename}.json')
+            return True
         except Exception as e:
             print("Error uploading JSON file to S3:", e)
+            return False
 

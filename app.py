@@ -14,7 +14,7 @@ def handler(event: dict, context):
 
         return {
             'statusCode': 200,
-            'body': json.loads("El archivo [] se ha CARGADO correctamente a procesar")
+            'body': "El archivo se ha CARGADO correctamente a procesar"
         }
     except Exception as e:
         print(e)
