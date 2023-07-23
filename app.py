@@ -8,4 +8,5 @@ def handler(event, context):
     records = event['Records']
 
     for record in records:
+        print(record['body'])
         ReportService.create_xlxs(record['body'])
