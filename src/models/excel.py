@@ -16,10 +16,6 @@ class Excel():
     def create_sheets(self, sheets):
         return [Sheet(item['name'], item['columns'], item['data'], item['data_invalid']) for item in sheets]
 
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
-
 
 
 
