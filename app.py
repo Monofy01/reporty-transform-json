@@ -7,6 +7,6 @@ def handler(event: dict, context):
     records = event['Records']
     try:
         for record in records:
-            ReportService.create_xlxs(record['body'])
+            ReportService.create_xlxs(json.loads(record['body']))
     except Exception as e:
         print(e)
