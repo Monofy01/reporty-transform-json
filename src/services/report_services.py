@@ -9,7 +9,7 @@ class ReportService:
         pass
 
     @staticmethod
-    def create_xlxs(request_json: dict):
+    def create_xlsx(request_json):
         print("POST TYPE")
         print(type(request_json))
         creator_excel = CreatorXlsx(request_json['excel'])
