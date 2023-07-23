@@ -16,4 +16,7 @@ def handler(event: dict, context):
         print(f"value record[body]: {record['body']}")
         print(f"type record[body]: {type(record['body'])}")
 
-        ReportService.create_xlsx(record['body'])
+        parsed_body_data = json.loads(record['body'])
+        print(f"value record[body]: {parsed_body_data}")
+        print(f"type record[body]: {type(parsed_body_data)}")
+        ReportService.create_xlsx(parsed_body_data)
