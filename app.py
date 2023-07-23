@@ -12,8 +12,8 @@ def handler(event: dict, context):
         print(f"LIST + {type(records)}")
         print(f"ITEM + {type(record)}")
         print(record)
-        record_body_str = record['body']
-        record_body_dict = json.loads(record_body_str)
-        print(f'value record[body]: {record_body_dict}')
-        print(type(record_body_dict))
-        ReportService.create_xlsx(record_body_dict)
+
+        print(f"value record[body]: {record['body']}")
+        print(f"type record[body]: {type(record['body'])}")
+
+        ReportService.create_xlsx(record['body'])
