@@ -4,6 +4,7 @@ from src.services.report_services import ReportService
 
 
 def handler(event: dict, context):
+    print(f'REQUEST :: {event}')
     try:
         records = event['Records']
         for record in records:
