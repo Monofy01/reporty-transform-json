@@ -1,0 +1,21 @@
+{
+  "Records": [
+    {
+      "messageId": "19dd0b57-b21e-4ac1-bd88-01bbb068cb78",
+      "receiptHandle": "MessageReceiptHandle",
+      "body": "{\n    \"excel\": {\n        \"filename\": \"reporte-123\",\n        \"webhook\": false,\n        \"sheets\": [\n            {\n                \"name\": \"hoja123\",\n                \"columns\": [\n                    [\n                        \"column-1\",\n                        \"int\"\n                    ],\n                    [\n                        \"column-2\",\n                        \"bool\"\n                    ],\n                    [\n                        \"column-N\",\n                        \"str\"\n                    ]\n                ],\n                \"data\": [\n                    {\n                        \"column-1\": 33,\n                        \"column-2\": false,\n                        \"column-N\": \"OtraCadena\"\n                    }\n                ],\n                \"data_invalid\": [\n                    {\n                        \"column-1\": \"marconalgon\",\n                        \"column-2\": true,\n                        \"column-N\": \"UnaCadena\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"hoja2\",\n                \"columns\": [\n                    [\n                        \"column-1\",\n                        \"str\"\n                    ],\n                    [\n                        \"column-2\",\n                        \"bool\"\n                    ]\n                ],\n                \"data\": [\n                    {\n                        \"column-1\": \"perro\",\n                        \"column-2\": true\n                    },\n                    {\n                        \"column-1\": \"gato\",\n                        \"column-2\": false\n                    }\n                ],\n                \"data_invalid\": []\n            }\n        ]\n    }\n}",
+      "attributes": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1523232000000",
+        "SenderId": "123456789012",
+        "ApproximateFirstReceiveTimestamp": "1523232000001"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "7b270e59b47ff90a553787216d55d91d",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:{partition}:sqs:{region}:123456789012:MyQueue",
+      "awsRegion": "{region}"
+    }
+
+  ]
+}
