@@ -10,6 +10,8 @@ class ReportService:
 
     @staticmethod
     def create_xlxs(request_json: dict):
+        print("POST TYPE")
+        print(type(request_json))
         creator_excel = CreatorXlsx(request_json['excel'])
         creator_excel.new_xlsx()
         S3Client.upload_s3(creator_excel)
