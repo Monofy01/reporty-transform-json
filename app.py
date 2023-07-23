@@ -8,6 +8,4 @@ def handler(event, context):
     records = event['Records']
 
     for record in records:
-        body = record['body']
-        excel_json = json.loads(body)
-        ReportService.create_xlxs(excel_json)
+        ReportService.create_xlxs(record['body'])
