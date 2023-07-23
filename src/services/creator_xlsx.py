@@ -1,3 +1,4 @@
+import io
 import json
 
 from openpyxl.workbook import Workbook
@@ -27,6 +28,11 @@ class CreatorXlsx:
             if len(sheet_file.data_invalid) > 0:
                 self.log_output.append([dict(sheet_file.columns), *sheet_file.data_invalid])
 
-        self.workbook.remove(self.workbook.active)
-        self.workbook.save(f'/tmp/{self.excel.filename}.xlsx')
+        buffer = io.BytesIO()
+        self.workbook.save(buffer)
+        buffer.seek(0)
+
+        binary_data = buffer.getvalue()
+        buffer.close()
+        return binary_data
 
