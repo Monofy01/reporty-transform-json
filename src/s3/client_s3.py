@@ -17,9 +17,15 @@ class S3Client:
         try:
             print("Creating ZIP buffer")
             zip_buffer = io.BytesIO()
-            with zipfile.ZipFile(zip_buffer, 'w') as zip_file:
-                zip_file.writestr(f"{creator_excel.excel.filename}.xlsx", binary_data_xlsx)
-                zip_file.writestr(f"{creator_excel.excel.filename}-logs.txt", binary_data_log)
+
+            if binary_data_log == None:
+                with zipfile.ZipFile(zip_buffer, 'w') as zip_file:
+                    zip_file.writestr(f"{creator_excel.excel.filename}.xlsx", binary_data_xlsx)
+            else:
+                with zipfile.ZipFile(zip_buffer, 'w') as zip_file:
+                    zip_file.writestr(f"{creator_excel.excel.filename}.xlsx", binary_data_xlsx)
+                    zip_file.writestr(f"{creator_excel.excel.filename}-logs.txt", binary_data_log)
+
 
             zip_buffer.seek(0)
             binary_zip = zip_buffer.getvalue()
