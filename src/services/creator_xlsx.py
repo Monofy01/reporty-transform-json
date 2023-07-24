@@ -11,7 +11,7 @@ class CreatorXlsx:
         self.workbook = Workbook()
         self.excel_raw = data_xlsx
         self.log_output = []
-        self.excel = Excel(data_xlsx['filename'], data_xlsx['webhook'], data_xlsx['sheets'])
+        self.excel = Excel(data_xlsx['excel']['filename'], data_xlsx['excel']['webhook'], data_xlsx['excel']['sheets'])
 
 
     def new_xlsx(self):
