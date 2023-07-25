@@ -21,4 +21,9 @@ class Excel:
         return excel_dict
 
 
+    def __post_init__(self):
+        for s in self.sheets:
+            self.log_output.append([s.columns, s.data_invalid])
+
+
 

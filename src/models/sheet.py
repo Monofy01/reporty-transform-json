@@ -14,8 +14,9 @@ class Sheet:
         name = sheet_dict.get('name', '')
         columns = [tuple(column) for column in sheet_dict.get('columns', [])]
         data = [dict(item) for item in sheet_dict.get('data', [])]
+        data_invalid = [dict(item) for item in sheet_dict.get('data_invalid', [])]
 
-        return cls(name, columns, data)
+        return cls(name, columns, data, data_invalid)
     def to_dict(self):
         sheet_dict = {
             "name": self.name,
