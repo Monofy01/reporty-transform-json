@@ -4,14 +4,19 @@ import json
 from openpyxl.workbook import Workbook
 
 from src.models.excel import Excel
+from src.models.sheet import Sheet
 
 
 class CreatorXlsx:
-    def __init__(self, data_xlsx):
+    def __init__(self, excel):
         self.workbook = Workbook()
-        self.excel_raw = data_xlsx
+        self.excel_raw = excel
         self.log_output = []
-        self.excel = Excel(data_xlsx['excel']['filename'], data_xlsx['excel']['webhook'], data_xlsx['excel']['sheets'])
+        self.excel = Excel(
+            filename=excel['filename'],
+            webhook=excel['webhook'],
+            sheets=[Sheet.from_dict(item) for item in excel['sheets']]
+        )
 
 
     def new_xlsx(self):
