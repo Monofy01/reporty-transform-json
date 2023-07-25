@@ -8,7 +8,7 @@ def handler(event: dict, context):
     try:
         records = event['Records']
         for record in records:
-            record['body'] = record['body'].replace("\\", "")[1:-1]
+            # record['body'] = record['body'].replace("\\", "")[1:-1]
             body = json.loads(record['body'])
             ReportService.create_xlsx(body)
 
