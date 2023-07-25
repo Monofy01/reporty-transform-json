@@ -29,7 +29,10 @@ class CreatorXlsx:
             for row_index, row_data in enumerate(sheet_file.data, start=2):
                 for column_index, column_name in enumerate(sheet_file.columns, start=1):
                     cell_value = row_data.get(column_name[0])
-                    sheet.cell(row=row_index, column=column_index, value=cell_value)
+                    if type(cell_value) is list or type(cell_value) is bool:
+                        sheet.cell(row=row_index, column=column_index, value=str(cell_value))
+                    else:
+                        sheet.cell(row=row_index, column=column_index, value=cell_value)
             if len(sheet_file.data_invalid) > 0:
                 self.log_output.append([dict(sheet_file.columns), *sheet_file.data_invalid])
 
