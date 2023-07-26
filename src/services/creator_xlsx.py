@@ -8,14 +8,14 @@ from src.models.sheet import Sheet
 
 
 class CreatorXlsx:
-    def __init__(self, excel):
+    def __init__(self, body):
         self.workbook = Workbook()
-        self.excel_raw = excel
+        self.excel_raw = body
         self.log_output = []
         self.excel = Excel(
-            filename=excel['filename'],
-            webhook=excel['webhook'],
-            sheets=[Sheet.from_dict(item) for item in excel['sheets']]
+            filename=json.loads(body['excel'])['filename'],
+            webhook=json.loads(body['excel'])['webhook'],
+            sheets=[Sheet.from_dict(item) for item in json.loads(body['excel'])['sheets']]
         )
 
 
